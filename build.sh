@@ -1,6 +1,13 @@
 #!/bin/bash -x
 
-script_dir=$(readlink -f `dirname $0`)
+# 'readlink -f' isn't available on MacOS, but we should be able to fudge it
+# by using Perl's Cwd module. (I'm not thrilled with making that dependency
+# but it seems the Perl module it's everywhere I need it by default)
+function resolve_dir() {
+  echo $(perl -MCwd -e 'print Cwd::abs_path($ARGV[0])' $1)
+}
+
+script_dir=$(resolve_dir `dirname $0`)
 
 # setup
 rm -f $script_dir/snm.tar
@@ -14,6 +21,7 @@ esac
 
 # build base
 cd ${script_dir}/pre-install/${build_dir}
+rm -rf resources && cp -Rp ../resources .
 docker build -t snm:base .
 
 # run base and do snm install
