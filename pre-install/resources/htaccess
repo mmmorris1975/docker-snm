@@ -1,0 +1,4 @@
+<Directory "/var/www/html/snm">
+  AddHandler cgi-script cgi
+  Options ExecCGI
+</Directory>

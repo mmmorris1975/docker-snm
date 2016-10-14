@@ -1,0 +1,33 @@
+<graphs>
+  <page menu="internet_stats" description="Internet Connection Performance">
+    <graph description="Internet Router Ping" vertical_label="ms">
+      <plot description="alert" color="ff0000" plot="LINE1">500</plot>
+      <plot description="min" color="0000cc">[isp_router:ping:min:AVERAGE]</plot>
+      <plot description="max" color="aa0000">[isp_router:ping:max:AVERAGE]</plot>
+      <plot description="avg" color="00aa00" line="AVERAGE:000000">[isp_router:ping:avg:AVERAGE]</plot>
+    </graph>
+    <graph description="Home Router WAN Interface Ping" vertical_label="ms">
+      <plot description="alert" color="ff0000" plot="LINE1">1</plot>
+      <plot description="min" color="0000cc">[wan_interface:ping:min:AVERAGE]</plot>
+      <plot description="max" color="aa0000">[wan_interface:ping:max:AVERAGE]</plot>
+      <plot description="avg" color="00aa00" line="AVERAGE:000000">[wan_interface:ping:avg:AVERAGE]</plot>
+    </graph>
+  </page>
+
+  <page menu="router_details:host" description="Home Router Performance Details">
+  </page>
+  <page menu="router_details:network" description="Home Router Performance Details">
+  </page>
+
+  <page menu="localhost:host" description="SNM Host Statistics">
+  </page>
+  <page menu="localhost:apache" description="SNM Apache Statistics">
+    <graph description="Hits" vertical_label="count" k_base="1000">
+      <plot color="000000">[localhost:apache_total_hits:0:MAX]</plot>
+    </graph>
+    <graph description="Apache Workers" vertical_label="count" k_base="1000">
+      <plot description="Busy" color="aa0000">[localhost:apache_busy_workers:0:AVERAGE]</plot>
+      <plot description="Idle" color="0000aa">[localhost:apache_idle_workers:0:AVERAGE]</plot>
+    </graph>
+  </page>
+</graphs>

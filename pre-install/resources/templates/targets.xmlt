@@ -1,0 +1,23 @@
+<targets>
+  <target id="home_router" ip_address="<TMPL_VAR ESCAPE=HTML NAME=router_ip>" attributes="no">
+    <template id="ping" ping="20" data_source_type="GAUGE" frequency="60" />
+  </target>
+
+  <target id="wan_interface" ip_address="<TMPL_VAR ESCAPE=HTML NAME=wan_ip>" attributes="no">
+    <template id="ping" ping="20" data_source_type="GAUGE" frequency="60" />
+  </target>
+
+  <target id="isp_router" ip_address="<TMPL_VAR ESCAPE=HTML NAME=isp_ip>" attributes="no">
+    <template id="ping" ping="20" data_source_type="GAUGE" frequency="60" />
+  </target>
+
+  <target id="localhost" ip_address="127.0.0.1" attributes="no">
+    <!-- Can't gather snmp stats since we need to query snmp on the docker host via the host's docker0 IP address -->
+    <!-- Apache stats from snm module -->
+    <template id="apache_total_hits" module="Apachestats::stats( '%ip_address%', 'apache_total_hits' )" data_source_type="GAUGE" frequency="300" />
+    <template id="apache_busy_workers" module="Apachestats::stats( '%ip_address%', 'apache_busy_workers' )" data_source_type="GAUGE" frequency="300" />
+    <template id="apache_idle_workers" module="Apachestats::stats( '%ip_address%', 'apache_idle_workers' )" data_source_type="GAUGE" frequency="300" />
+  </target>
+
+  <target id="docker_host" ip_address="<TMPL_VAR ESCAPE=HTML NAME=docker_ip>" attributes="no" />
+</targets>

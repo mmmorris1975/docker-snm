@@ -1,0 +1,14 @@
+<opt>
+  <language language="<TMPL_VAR ESCAPE=HTML NAME=lang DEFAULT=en>" />
+  <config directory="/etc/opt/snm" />
+  <app directory="/opt/snm" />
+  <web directory="/var/www/html/snm" />
+  <log file="/var/log/snm.log" purge="7" />
+  <default frequency="<TMPL_VAR NAME=freq DEFAULT=300>" timeout="<TMPL_VAR NAME=timeout DEFAULT=5>" />
+  <ping method="<TMPL_VAR ESCAPE=HTML NAME=ping DEFAULT=internal>" />
+  <snmp port="161" retries="3" />
+  <image format="PNG" width="<TMPL_VAR NAME=width DEFAULT=400>" height="<TMPL_VAR NAME=height DEFAULT=100>" />
+  <rrdstep timeout="2" />
+  <attributes in_file="/etc/opt/snm/discover.xml" frequency="<TMPL_VAR NAME=refresh DEFAULT=24>" />
+  <!-- <nix_mgt user="snm" group="www-data" PID_path="/var/run/snm.pid" /> -->
+</opt>

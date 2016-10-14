@@ -1,0 +1,9 @@
+<suites>
+  <suite id="sysInfo">
+    <value oid="1.3.6.1.2.1.1.5.0" description="System Name" />
+    <value oid="1.3.6.1.2.1.1.1.0" description="System Description" />
+    <value oid="1.3.6.1.2.1.1.6.0" description="System Location" />
+    <value oid="1.3.6.1.2.1.1.4.0" description="System Contact" />
+    <value oid="1.3.6.1.2.1.25.2.2.0" description="Total Memory (kB)" />
+  </suite>
+</suites>
