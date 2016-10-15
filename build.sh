@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash -ex
 
 # 'readlink -f' isn't available on MacOS, but we should be able to fudge it
 # by using Perl's Cwd module. (I'm not thrilled with making that dependency
