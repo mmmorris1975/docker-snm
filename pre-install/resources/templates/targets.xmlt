@@ -14,7 +14,7 @@
   <target id="localhost" ip_address="127.0.0.1" attributes="no">
     <!-- Can't gather snmp stats since we need to query snmp on the docker host via the host's docker0 IP address -->
     <!-- Apache stats from snm module -->
-    <template id="apache_total_hits" module="Apachestats::stats( '%ip_address%', 'apache_total_hits' )" data_source_type="GAUGE" frequency="300" />
+    <template id="apache_total_hits" module="Apachestats::stats( '%ip_address%', 'apache_total_hits' )" data_source_type="COUNTER" frequency="300" />
     <template id="apache_busy_workers" module="Apachestats::stats( '%ip_address%', 'apache_busy_workers' )" data_source_type="GAUGE" frequency="300" />
     <template id="apache_idle_workers" module="Apachestats::stats( '%ip_address%', 'apache_idle_workers' )" data_source_type="GAUGE" frequency="300" />
   </target>

@@ -1,11 +1,18 @@
 #!/bin/bash
 
 config='/etc/opt/snm/config.xml'
+config_dir=$(dirname $config)
 verbose=''
 
 # initial start up, build config.xml and targets.xml from templates
-cd /tmp/templates
-perl template_processor.pl $(dirname $config)
+template_semaphore=${config_dir}/.templates_created
+
+if [ ! -f $template_semaphore ]
+then
+  cd /tmp/templates
+  perl template_processor.pl $(dirname $config)
+  touch $template_semaphore
+fi
 
 if [ $VERBOSE -gt 0 ]
 then
