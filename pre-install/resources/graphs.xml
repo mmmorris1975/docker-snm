@@ -2,15 +2,15 @@
   <page menu="internet_stats" description="Internet Connection Performance">
     <graph description="Internet Router Ping" vertical_label="ms">
       <plot description="alert" color="ff0000" plot="LINE1">500</plot>
-      <plot description="min" color="0000cc">[isp_router:ping:min:AVERAGE]</plot>
-      <plot description="max" color="aa0000">[isp_router:ping:max:AVERAGE]</plot>
-      <plot description="avg" color="00aa00" line="AVERAGE:000000">[isp_router:ping:avg:AVERAGE]</plot>
+      <plot description="max" color="bbbbbb" plot="AREA">[isp_router:ping:max:AVERAGE]</plot>
+      <plot description="min" color="ffffff" plot="AREA">[isp_router:ping:min:AVERAGE]</plot>
+      <plot description="avg" color="0000ee" plot="LINE1" line="AVERAGE:000000">[isp_router:ping:avg:AVERAGE]</plot>
     </graph>
     <graph description="Home Router WAN Interface Ping" vertical_label="ms">
       <plot description="alert" color="ff0000" plot="LINE1">1</plot>
-      <plot description="min" color="0000cc">[wan_interface:ping:min:AVERAGE]</plot>
-      <plot description="max" color="aa0000">[wan_interface:ping:max:AVERAGE]</plot>
-      <plot description="avg" color="00aa00" line="AVERAGE:000000">[wan_interface:ping:avg:AVERAGE]</plot>
+      <plot description="max" color="bbbbbb" plot="AREA">[wan_router:ping:max:AVERAGE]</plot>
+      <plot description="min" color="ffffff" plot="AREA">[wan_router:ping:min:AVERAGE]</plot>
+      <plot description="avg" color="0000ee" plot="LINE1" line="AVERAGE:000000">[wan_router:ping:avg:AVERAGE]</plot>
     </graph>
   </page>
 
